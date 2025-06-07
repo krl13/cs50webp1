@@ -35,3 +35,11 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+def get_title_from_markdown(content):
+    lines = content.splitlines()
+    for line in lines:
+        line = line.strip()
+        if line.startswith("# "):
+            return line[2:]  
+    return None
